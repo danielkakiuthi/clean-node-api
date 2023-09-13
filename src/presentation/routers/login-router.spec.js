@@ -1,6 +1,7 @@
 /* eslint-env jest */
 const LoginRouter = require('./login-router.js')
 const MissingParamError = require('../helpers/missing-param-error.js')
+const UnauthorizedError = require('../helpers/unauthorized-error.js')
 
 const makeSut = () => {
   class AuthUseCaseSpy {
@@ -78,5 +79,6 @@ describe('Login Router', () => {
     }
     const httpResponse = sut.route(httpRequest)
     expect(httpResponse.statusCode).toBe(401)
+    expect(httpResponse.body).toEqual(new UnauthorizedError())
   })
 })
