@@ -9,16 +9,17 @@
     "prepare": "husky install"
   },
   "standard": {
-    "env": ["jest"]
+    "env": [
+      "jest"
+    ]
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.4",
     "husky": "^8.0.0",
+    "jest": "^29.7.0",
     "lint-staged": "^14.0.1",
     "standard": "^17.1.0"
-  },
-  "dependencies": {
-    "jest": "^29.6.4"
   }
 }
