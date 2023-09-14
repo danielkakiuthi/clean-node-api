@@ -1,9 +1,6 @@
 /* eslint-env jest */
 const LoginRouter = require('./login-router.js')
-const MissingParamError = require('../helpers/missing-param-error.js')
-const InvalidParamError = require('../helpers/invalid-param-error.js')
-const UnauthorizedError = require('../helpers/unauthorized-error.js')
-const ServerError = require('../helpers/server-error.js')
+const { MissingParamError, InvalidParamError, UnauthorizedError, ServerError } = require('../errors/index.js')
 
 const makeSut = () => {
   const authUseCaseSpy = makeAuthUseCase()
