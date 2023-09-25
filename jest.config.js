@@ -101,7 +101,7 @@ const config = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: '@shelf/jest-mongodb',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -145,7 +145,7 @@ const config = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: 'jest-environment-node'
+  testEnvironment: 'jest-environment-node',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -189,7 +189,7 @@ const config = {
   // verbose: undefined,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
-  // watchPathIgnorePatterns: [],
+  watchPathIgnorePatterns: ['globalConfig']
 
   // Whether to use watchman for file crawling
   // watchman: true,
