@@ -1,23 +1,7 @@
 /* eslint-env jest */
 const { MongoClient } = require('mongodb')
-
+const LoadUserByEmailRepository = require('./load-user-by-email-repository.js')
 let client, db
-class LoadUserByEmailRepository {
-  constructor (userModel) {
-    this.userModel = userModel
-  }
-
-  async load (email) {
-    const user = await this.userModel.findOne(
-      { email }, {
-        projection: {
-          password: 1
-        }
-      }
-    )
-    return user
-  }
-}
 
 const makeSut = () => {
   const userModel = db.collection('users')
