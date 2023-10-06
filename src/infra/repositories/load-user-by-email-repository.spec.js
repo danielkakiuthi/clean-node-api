@@ -1,7 +1,7 @@
 /* eslint-env jest */
-const { MongoClient } = require('mongodb')
+const MongoHelper = require('../helpers/mongo-helper.js')
 const LoadUserByEmailRepository = require('./load-user-by-email-repository.js')
-let client, db
+let db
 
 const makeSut = () => {
   const userModel = db.collection('users')
@@ -15,11 +15,8 @@ const makeSut = () => {
 
 describe('LoadUserByEmail Repository', () => {
   beforeAll(async () => {
-    client = await MongoClient.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    })
-    db = await client.db()
+    await MongoHelper.connect(process.env.MONGO_URL)
+    db = await MongoHelper.db
   })
 
   beforeEach(async () => {
@@ -27,7 +24,7 @@ describe('LoadUserByEmail Repository', () => {
   })
 
   afterAll(async () => {
-    await client.close()
+    await MongoHelper.disconnect()
   })
 
   test('Should return null if no user is found', async () => {
