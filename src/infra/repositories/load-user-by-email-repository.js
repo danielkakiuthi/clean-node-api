@@ -1,6 +1,3 @@
-// const { MongoClient } = require('mongodb')
-
-// let client, db
 module.exports = class LoadUserByEmailRepository {
   constructor (userModel) {
     this.userModel = userModel
