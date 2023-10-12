@@ -1,4 +1,13 @@
 /* eslint-env jest */
+jest.mock('bcrypt', () => ({
+  isValid: true,
+  async compare (value, hash) {
+    this.value = value
+    this.hash = hash
+    return this.isValid
+  }
+}))
+
 const MissingParamError = require('../errors/missing-param-error.js')
 const Encrypter = require('./encrypter.js')
 const bcrypt = require('bcrypt')
