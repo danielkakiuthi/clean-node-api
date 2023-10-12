@@ -1,9 +1,8 @@
 /* eslint-env jest */
 const request = require('supertest')
+let app
 
 describe('Content-Type Middleware', () => {
-  let app
-
   beforeEach(() => {
     jest.resetModules()
     app = require('../config/app')
